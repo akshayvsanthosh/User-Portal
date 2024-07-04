@@ -1,0 +1,26 @@
+<div class="w-100 d-flex justify-content-center align-items-center" style="height: 90vh;">
+    <div style="width: 65%; height: 75%; background-color: #181818; border-radius: 8px;">
+        <div class="row h-100">
+            <div class="col-5 h-100 d-flex justify-content-center align-items-center">
+              <img width="75%" src="https://cdni.iconscout.com/illustration/premium/thumb/login-3305943-2757111.png?f=webp" alt="Image">
+            </div>
+            <div class="col-7 h-100 d-flex justify-content-center align-items-center">
+              <div class="border border-white rounded-3 d-flex flex-column align-items-center" style="width: 65%; height: 80%;">
+                <h4 class="text-white" style="width: 75%;  margin-top: 50px;">Login Form</h4>
+                <form (ngSubmit)="login()" #loginForm="ngForm" class="w-100 d-flex flex-column align-items-center" >
+
+                  <input #useremail="ngModel" name="email" [(ngModel)]="email" type="text" style="width: 75%; height: 45px; padding: 4px; margin-top: 45px;" placeholder="Email address" email required>
+
+                  <div *ngIf="useremail.invalid && useremail.touched" class="text-danger fw-bolder ">Invalid Email</div>
+
+                  <input #userpassword="ngModel" name="password" [(ngModel)]="password" type="password" style="width: 75%; height: 45px; padding: 4px; margin-top: 10px;" placeholder="Password" pattern="[a-zA-Z0-9]*" required>
+
+                  <div *ngIf="userpassword.invalid && userpassword.touched" class="text-danger fw-bolder ">Invalid Password</div>
+                  
+                  <button [disabled]="loginForm.invalid" type="submit" class="btn bg-warning" style="width: 75%; margin-top: 10px;">Login</button>
+                </form>
+            </div>
+            </div>
+          </div>
+    </div>
+</div>
